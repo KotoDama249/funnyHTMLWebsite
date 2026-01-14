@@ -1,0 +1,597 @@
+#loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+}
+
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+@font-face {
+  font-family: 'Azuki';
+  src: url('font.ttf');
+}
+
+body {
+  background-color: black;
+  color: white;
+  margin: 0;
+  font-family: 'Azuki', Arial, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+.pixel {
+	image-rendering: pixelated;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;        /* use full viewport height */
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* keeps buttons at bottom */
+  padding: 20px;
+  box-sizing: border-box;
+  border-right: 3px solid #333;
+}
+
+/* make links scrollable if needed */
+.sidebar-top {
+  flex: 1 1 auto;       /* grow to fill available space */
+  overflow-y: auto;     /* scroll when content exceeds space */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* button container stays at bottom */
+.sidebar-buttons {
+  flex-shrink: 0;       /* do not shrink, stays at bottom */
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.sidebar h3 {
+  margin: 0 0 15px 0;
+  font-size: 20px;
+  color: #ccc;
+}
+
+.sidebar a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 20px;
+  transition: color 0.2s;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+}
+
+/* Main content */
+.content {
+  margin-left: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.special-size {
+  font-size: 195%;
+}
+
+.month-group {
+  width: 100%;
+  max-width: 1550px;
+}
+
+.month-title {
+  text-align: left;
+  font-size: 28px;
+  margin: 40px 0 15px;
+  color: #f2f2f2;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px; /* tighter spacing */
+  width: 100%;
+  max-width: 1600px; /* more breathing room overall */
+  justify-items: center;
+  margin: 0 auto;
+  padding: 0 2px; /* small padding on sides */
+}
+
+.month-group .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers all images in the group */
+  gap: 15px;
+}
+
+.month-name .month-link .year-text{
+  font-weight: bold;
+}
+
+.month-link .year-text {
+  color: #777;
+  font-size: 0.9em;
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+.img-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+.gallery img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 15px; /* add a bit of breathing space */
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Fullscreen */
+.fullscreen {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centers both image + controls closer */
+  box-sizing: border-box;
+}
+
+/* Image area */
+.fullscreen .img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: auto;
+  max-height: 95%; /* give some space for controls below */
+}
+
+.fullscreen img {
+  display: block;
+  max-width: 99%;
+  max-height: 99%;
+  border-radius: 10px;
+  margin-top: 2px;
+}
+
+/* Reposition date + arrows to bottom-left in fullscreen */
+.fullscreen .date-controls {
+  position: absolute;
+  bottom: 15px;          /* distance from bottom edge */
+  left: 15px;            /* distance from left edge */
+  background: rgba(0, 0, 0, 0.4); /* translucent dark background */
+  border-radius: 5px;
+  padding: 6px 10px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;             /* spacing between arrows and date */
+  z-index: 1001;         /* above image but below overlay controls */
+}
+
+.date-text {
+  color: #ccc;
+  font-size: 20px;
+  width: 125px;
+  text-align: center;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.nav-btn:hover {
+  color: #fff;
+}
+
+.fullscreen .date-text {
+  color: #ddd;
+  font-size: 20px;
+  text-align: center;
+  max-width: 125px;
+}
+
+.fullscreen .nav-btn {
+  font-size: 26px;
+  color: #ccc;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.fullscreen .nav-btn:hover {
+  color: #fff;
+}
+
+#fullscreenBtn {
+  align-self: stretch; /* full width of sidebar */
+  padding: 7px 5px;
+  font-size: 20px;
+  font-family: 'Azuki';
+  color: #ccc;
+  background: #111;
+  border: 1px solid #111;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+#fullscreenBtn:hover {
+  box-shadow: 0 0 15px #ccc;
+}
+
+/* Overlay button styling (similar to fullscreen button) */
+.overlay-btn {
+  align-self: stretch; /* full width of sidebar */
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: 'Azuki';
+  color: #ccc;
+  background: #111;
+  border: 1px solid #111;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.overlay-btn:hover {
+  box-shadow: 0 0 15px #ccc;
+  z-index: 25;
+}
+
+/* Overlay container */
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image inside overlay */
+.overlay-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 75%;
+  max-height: 75%;
+}
+
+/* Overlay image base */
+.overlay img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 10px;
+  image-rendering: auto;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* fade effect */
+}
+
+/* Active image fades in */
+.overlay img.visible {
+  opacity: 1;
+}
+
+/* Crisp scaling for pixel art images */
+.overlay img.pixelated {
+  image-rendering: pixelated;
+  transform: scale(2);
+  max-width: 50vw;
+  max-height: 50vh;
+}
+
+/* Overlay pause button */
+.overlay-pause {
+  position: absolute;
+  width: 100px;
+  bottom: 30px;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  border: 1px solid #44444400;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: 'Azuki';
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.overlay-pause:hover {
+  box-shadow: 0 0 10px #999;
+}
+
+/* Overlay game sidebar */
+.game-sidebar {
+  position: fixed;
+  top: 0;
+  right: -385px; /* match your previous sidebar hidden width */
+  width: 340px;
+  height: 100vh;
+  background-color: #111; /* match main sidebar bg */
+  color: #ccc; /* lighter text like main sidebar */
+  box-shadow: -3px 0 15px rgb(255, 255, 255); /* stronger shadow like fullscreen btn hover */
+  padding: 20px;
+  transition: right 0.3s ease, box-shadow 0.3s ease;
+  z-index: 750;
+  overflow-y: auto;
+  font-family: 'Azuki', Arial, sans-serif; /* match main font */
+  border-left: 3px solid #333; /* match sidebar border */
+  border-radius: 0 10px 10px 0; /* subtle rounded edge */
+}
+
+/* Overlay game sidebar */
+.game-sidebar p {
+  font-size: 20px;
+}
+
+/* Show sidebar */
+.game-sidebar.open {
+  right: 0;
+}
+
+/* Close button */
+.game-sidebar .close-btn {
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #ccc; /* lighter text like sidebar links */
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.game-sidebar .close-btn:hover {
+  color: #fff; /* hover effect like links */
+}
+
+#openGameSidebarBtn {
+  align-self: stretch; /* full width of sidebar */
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: 'Azuki';
+  color: #ccc;
+  background: #111;
+  border: 1px solid #111;
+  border-radius: 25px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+/* Shortcut container */
+.shortcut-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  margin-top: 50px;
+}
+
+/* Individual shortcuts */
+.shortcut-container .shortcut {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  background: #111; /* match sidebar bg */
+  border: 1px solid #333; /* subtle border like sidebar */
+  border-radius: 25px; /* match fullscreen/overlay buttons */
+  text-decoration: none;
+  color: #ccc; /* consistent text color */
+  font-family: 'Azuki', Arial, sans-serif; /* match main font */
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-direction: column; /* vertical layout */
+}
+
+.shortcut img {
+  max-height: 160px;
+}
+
+.shortcut-container .shortcut:hover {
+  box-shadow: 0 0 15px #ccc; /* match fullscreen button hover */
+  color: #fff; /* hover color */
+  transform: scale(1.03); /* subtle hover pop */
+}
+
+/* --- Month color themes --- */
+
+/* January */
+.month-group.jan .month-title,
+.month-link.jan {
+  color: #95fff1; /* icy blue */
+}
+.month-group.jan img:hover {
+  box-shadow: 0 0 30px #95fff1;
+}
+
+/* February */
+.month-group.feb .month-title,
+.month-link.feb {
+  color: #ff99c8; /* soft pink */
+}
+.month-group.feb img:hover {
+  box-shadow: 0 0 30px #ff99c8;
+}
+
+/* March */
+.month-group.mar .month-title,
+.month-link.mar {
+  color: #7bcf8e; /* fresh green */
+}
+.month-group.mar img:hover {
+  box-shadow: 0 0 30px #7bcf8e;
+}
+
+/* April */
+.month-group.apr .month-title,
+.month-link.apr {
+  color: #bca7ff; /* pastel violet */
+}
+.month-group.apr img:hover {
+  box-shadow: 0 0 30px #bca7ff;
+}
+
+/* May */
+.month-group.may .month-title,
+.month-link.may {
+  color: #ffb347; /* warm orange */
+}
+.month-group.may img:hover {
+  box-shadow: 0 0 30px #ffb347;
+}
+
+/* June */
+.month-group.jun .month-title,
+.month-link.jun {
+  color: #ffd966; /* bright yellow */
+}
+.month-group.jun img:hover {
+  box-shadow: 0 0 30px #ffd966;
+}
+
+/* July */
+.month-group.jul .month-title,
+.month-link.jul {
+  color: #ff6961; /* coral red */
+}
+.month-group.jul img:hover {
+  box-shadow: 0 0 30px #ff6961;
+}
+
+/* August */
+.month-group.aug .month-title,
+.month-link.aug {
+  color: #f8d66d; /* sunny gold */
+}
+.month-group.aug img:hover {
+  box-shadow: 0 0 30px #f8d66d;
+}
+
+/* September */
+.month-group.sep .month-title,
+.month-link.sep {
+  color: #6dd6a3; /* mint green */
+}
+.month-group.sep img:hover {
+  box-shadow: 0 0 30px #6dd6a3;
+}
+
+/* October */
+.month-group.oct .month-title,
+.month-link.oct {
+  color: #ff944d; /* pumpkin orange */
+}
+.month-group.oct img:hover {
+  box-shadow: 0 0 30px #ff944d;
+}
+
+/* November */
+.month-group.nov .month-title,
+.month-link.nov {
+  color: #b17c5b; /* autumn brown */
+}
+.month-group.nov img:hover {
+  box-shadow: 0 0 30px #b17c5b;
+}
+
+/* December */
+.month-group.dec .month-title,
+.month-link.dec {
+  color: #a5c8ff; /* winter blue */
+}
+.month-group.dec img:hover {
+  box-shadow: 0 0 30px #a5c8ff;
+}
+
+/* --- Year color themes --- */
+
+/* 2022 */
+.year-text.two {
+  color: #b9351e;
+}
+
+/* 2023 */
+.year-text.three {
+  color: #cc8a33;
+}
+
+/* 2024 */
+.year-text.four {
+  color: #4eb37f;
+}
+
+/* 2025 */
+.year-text.five {
+  color: #6fa5cc;
+}
+
+/* 2026 */
+.year-text.six {
+  color: #845ec9ff;
+}

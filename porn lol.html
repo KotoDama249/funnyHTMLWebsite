@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>"Funny" Image Gallery</title>
+  <link rel="icon" type="image/png" href="erm/r34 tab logo.png">
+  
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader"></div>
+
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <h3>Jump to:</h3>
+      <a href="#sep-2022" class="month-link sep"><span class="month-name">September</span><span class="year-text two">2022</span></a>
+      <a href="#may-2023" class="month-link may"><span class="month-name">May</span><span class="year-text three">2023</span></a>
+      <a href="#sep-2023" class="month-link sep"><span class="month-name">September</span><span class="year-text three">2023</span></a>
+      <a href="#nov-2023" class="month-link nov"><span class="month-name">November</span><span class="year-text three">2023</span></a>
+      <a href="#jan-2024" class="month-link jan"><span class="month-name">January</span><span class="year-text four">2024</span></a>
+      <a href="#feb-2024" class="month-link feb"><span class="month-name">February</span><span class="year-text four">2024</span></a>
+      <a href="#jun-2024" class="month-link jun"><span class="month-name">June</span><span class="year-text four">2024</span></a>
+      <a href="#jul-2024" class="month-link jul"><span class="month-name">July</span><span class="year-text four">2024</span></a>
+      <a href="#aug-2024" class="month-link aug"><span class="month-name">August</span><span class="year-text four">2024</span></a>
+      <a href="#sep-2024" class="month-link sep"><span class="month-name">September</span><span class="year-text four">2024</span></a>
+      <a href="#oct-2024" class="month-link oct"><span class="month-name">October</span><span class="year-text four">2024</span></a>
+      <a href="#nov-2024" class="month-link nov"><span class="month-name">November</span><span class="year-text four">2024</span></a>
+      <a href="#dec-2024" class="month-link dec"><span class="month-name">December</span><span class="year-text four">2024</span></a>
+      <a href="#jan-2025" class="month-link jan"><span class="month-name">January</span><span class="year-text five">2025</span></a>
+      <a href="#feb-2025" class="month-link feb"><span class="month-name">February</span><span class="year-text five">2025</span></a>
+      <a href="#mar-2025" class="month-link mar"><span class="month-name">March</span><span class="year-text five">2025</span></a>
+      <a href="#apr-2025" class="month-link apr"><span class="month-name">April</span><span class="year-text five">2025</span></a>
+      <a href="#may-2025" class="month-link may"><span class="month-name">May</span><span class="year-text five">2025</span></a>
+      <a href="#jun-2025" class="month-link jun"><span class="month-name">June</span><span class="year-text five">2025</span></a>
+      <a href="#jul-2025" class="month-link jul"><span class="month-name">July</span><span class="year-text five">2025</span></a>
+      <a href="#aug-2025" class="month-link aug"><span class="month-name">August</span><span class="year-text five">2025</span></a>
+      <a href="#sep-2025" class="month-link sep"><span class="month-name">September</span><span class="year-text five">2025</span></a>
+      <a href="#oct-2025" class="month-link oct"><span class="month-name">October</span><span class="year-text five">2025</span></a>
+      <a href="#nov-2025" class="month-link nov"><span class="month-name">November</span><span class="year-text five">2025</span></a>
+      <a href="#dec-2025" class="month-link dec"><span class="month-name">December</span><span class="year-text five">2025</span></a>
+      <a href="#jan-2026" class="month-link jan"><span class="month-name">January</span><span class="year-text six">2026</span></a>
+    </div>
+  <div>
+
+      <div class="sidebar-buttons">
+        <button onclick="window.location.href = window.location.origin + window.location.pathname" class="overlay-btn">
+        Reload Page
+        </button>
+
+        <button id="overlayBtn" class="overlay-btn">Enable Cover</button>
+        <div class="overlay" id="overlay">
+          <div class="overlay-img-wrapper">
+            <img id="overlayImg" src="" alt="">
+          </div>
+          <button id="pauseOverlayBtn" class="overlay-pause">⏸ Pause</button>
+        </div>
+        <button id="openGameSidebarBtn" class="overlay-btn">Game Shortcuts</button>
+        <button id="fullscreenBtn">⛶ Fullscreen</button>
+      </div>
+    </div>
+    </div>
+    
+  <div id="gameSidebar" class="game-sidebar">
+    <br>
+  <p>(Must turn on server first)</p>
+    <div class="shortcut-container">
+      <!-- 15 shortcuts -->
+      <a class="shortcut" onclick="launchApp('adventureWithMother')">
+        <img src="icons/rpgMaker.png" alt="Adventure with Mother" class="game-icon">
+        <span>Adventure with Mother</span></a>
+      <a class="shortcut" onclick="launchApp('darkred')"><img src="icons/darkRed.png" alt="DARKRED" class="game-icon pixel">
+        <span>DARKRED</span></a>
+      <a class="shortcut" onclick="launchApp('housemaidLadiesDisturbMyStudy')"><img src="icons/rpgMaker.png" alt="Housemaid Ladies Disturb my Study!" class="game-icon">
+        <span>Housemaid Ladies Disturb my Study!</span></a>
+      <!--<a class="shortcut" onclick="launchApp('insexualAwakening')"><img src="icons/renpy.png" alt="Insexual Awakening" class="game-icon">
+        <span>Insexual Awakening</span></a> -->
+      <a class="shortcut" onclick="launchApp('livingWithSister')"><img src="icons/wolfRPG.png" alt="Living With Sister" class="game-icon pixel">
+        <span>Living With Sister</span></a>
+      <a class="shortcut" onclick="launchApp('monsterGirlDreams')"><img src="icons/renpy.png" alt="Monster Girl Dreams" class="game-icon">
+        <span>Monster Girl Dreams</span></a>
+      <a class="shortcut" onclick="launchApp('npcRapeQuest')"><img src="icons/rpgMaker.png" alt="NPC Rape Quest" class="game-icon">
+        <span>NPC Rape Quest</span></a>
+      <a class="shortcut" onclick="launchApp('peepingDormManager')"><img src="icons/peepingDormManager.png" alt="Peeping Dorm Manager" class="game-icon">
+        <span>Peeping Dorm Manager</span></a>
+      <a class="shortcut" onclick="launchApp('succubusHunt')"><img src="icons/succubusHunt.png" alt="Succubus Hunt" class="game-icon">
+        <span>Succubus Hunt</span></a>
+      <a class="shortcut" onclick="launchApp('succubusForest')"><img src="icons/godot.png" alt="Succubus Forest" class="game-icon">
+        <span>Succubus Forest</span></a>
+      <a class="shortcut" onclick="launchApp('succumate')"><img src="icons/succumate.png" alt="Succumate" class="game-icon pixel">
+        <span>Succumate</span></a>
+      <!--<a class="shortcut" onclick="launchApp('suiminkanSim6')"><img src="icons/unity.png" alt="Suiminkan Sim6" class="game-icon">
+        <span>Suiminkan Sim6</span></a> -->
+      <a class="shortcut" onclick="launchApp('summerMemories')"><img src="icons/summerMemories.png" alt="Summer Memories" class="game-icon">
+        <span>Summer Memories</span></a>
+      <a class="shortcut" onclick="launchApp('transformativeSummer')"><img src="icons/godot.png" alt="Transformative Summer" class="game-icon">
+        <span>Transformative Summer</span></a>
+      <a class="shortcut" onclick="launchApp('winterMemories')"><img src="icons/winterMemories.png" alt="Winter Memories" class="game-icon">
+        <span>Winter Memories</span></a>
+      <!-- <a class="shortcut" onclick="launchApp('myMaid')"><img src="icons/myMaid.png" alt="My Maid" class="game-icon">
+        <span>My Maid</span></a> -->
+      <!-- <a class="shortcut" onclick="launchApp('whereGirlsAreMade')"><img src="icons/whereGirlsAreMade.png" alt="Where Girls Are Made" class="game-icon">
+        <span>Where Girls Are Made</span></a> -->
+      <!--<a class="shortcut" onclick="launchApp('cowgirlsCafe')"><img src="icons/cowgirlsCafe.png" alt="Cowgirls Cafè" class="game-icon">
+        <span>Cowgirls Cafe</span></a> -->
+      <a class="shortcut" onclick="launchApp('dokiDokiMassage')"><img src="icons/dokiDokiMassage.png" alt="Doki Doki Massage" class="game-icon">
+        <span>Doki Doki Massage</span></a>
+      <!--<a class="shortcut" onclick="launchApp('paizuriClicker')"><img src="icons/paizuriClicker.png" alt="Paizuri Clicker" class="game-icon">
+        <span>Paizuri Clicker</span></a> -->
+      <!--<a class="shortcut" onclick="launchApp('whatWeFoundThatSummer')"><img src="icons/rpgMaker.png" alt="What We Found That Summer" class="game-icon">
+        <span>What We Found That Summer</span></a> -->
+      <!--<a class="shortcut" onclick="launchApp('compensatedCorrectionWithPetiteBustyGirls')"><img src="icons/unity.png" alt="Compensated Correction With Petite Busty Girls" class="game-icon">
+        <span>Compensated Correction With Petite Busty Girls</span></a> -->
+      <!-- <a class="shortcut" onclick="launchApp('magicalGirlClicker')"><img src="icons/magicalGirlClicker.png" alt="Magical Girl Clicker" class="game-icon">
+        <span>Magical Girl Clicker</span></a> -->
+      <a class="shortcut" onclick="launchApp('heroineConquest')"><img src="icons/heroineConquest.png" alt="Heroine Conquest" class="game-icon pixel">
+        <span>Heroine Conquest</span></a>
+      <!--<a class="shortcut" onclick="launchApp('zenSexZoneZero')"><img src="icons/unity.png" alt="Zen-Sex Zone Zero" class="game-icon">
+        <span>Zen-Sex Zone Zero</span></a> -->
+      <a class="shortcut" onclick="launchApp('herInAnAllForgivingFantasyWorld')"><img src="icons/thing.png" alt="Hero In An All-Forgiving Fantasy World" class="game-icon">
+        <span>Hero In An All-Forgiving Fantasy World</span></a>
+      <a class="shortcut" onclick="launchApp('intimateDaysWithMyTsundereSister')"><img src="icons/intimateDaysWithMyTsundereSister.png" alt="Intimate Days with my Tsundere Sister" class="game-icon">
+        <span>Intimate Days with my Tsundere Sister</span></a>
+      <a class="shortcut" onclick="launchApp('myWifeWantsToBeAProfessionalCosplayer')"><img src="icons/myWifeWantsToBeAProfessionalCosplayer.png" alt="My Wife Wants To Be A Professional Cosplayer" class="game-icon">
+        <span>My Wife Wants To Be A Professional Cosplayer</span></a>
+      <a class="shortcut" onclick="launchApp('iWantToEscapeBut')"><img src="icons/iWantToEscapeBut.png" alt="I Want To Escape But..." class="game-icon">
+        <span>I Want To Escape But...</span></a>
+      <a class="shortcut" onclick="launchApp('noExitApartment')"><img src="icons/noExitApartment.png" alt="No Exit Apartment" class="game-icon">
+        <span>No Exit Apartment</span></a>
+      <a class="shortcut" onclick="launchApp('theHeroVersusTheSuccubusArmy')"><img src="icons/rpgMaker.png" alt="The Hero Versus The Succubus Army" class="game-icon">
+        <span>The Hero Versus The Succubus Army</span></a>
+        <br>
+        <br>
+    </div>
+  </div>
+
+  <div class="content">
+    <p class="special-size">"Funny" Image Gallery</p>
+
+    <!-- September 2022 -->
+    <div class="month-group sep" id="sep-2022" data-year="2022">
+      <div class="month-title">September <span class="year-text two">2022</span></div>
+      <div class="gallery">
+        <img src="erm/neo-iguess2.jpeg" alt="Image" data-date="September 26">
+      </div>
+    </div>
+
+    <!-- May 2023 -->
+    <div class="month-group may" id="may-2023" data-year="2023">
+      <div class="month-title">May <span class="year-text three">2023</span></div>
+      <div class="gallery">
+        <img src="erm/513e673fcb4b7a1720d8c4bba36f7e10.png" alt="Image" data-date="May 1">
+        <img src="erm/c7fe9e3065fb892e940f0d859179a03f.jpeg" alt="Image" data-date="May 1">
+        <img src="erm/a06adc87540d08d1fb0046ae7e798500.jpeg" alt="Image" data-date="May 1">
+      </div>
+    </div>
+
+    <!-- September 2024 -->
+    <div class="month-group sep" id="september" data-year="2023">
+      <div class="month-title">September <span class="year-text three">2023</span></div>
+      <div class="gallery">
+        <img src="erm/58e8f3b902102449b55235636f9ea678.jpeg" alt="Image" data-date="August 10">
+        <img src="erm/492aff0733aaa59c8cdadf7f11250f7e.jpeg" alt="Image" data-date="August 10">
+        <img src="erm/1a1d54e4aa75ede90fba5158541b0e6d.jpeg" alt="Image" data-date="August 11">
+        <img src="erm/89acc98fd9381516faf3308f11f2a6f7.jpeg" alt="Image" data-date="August 11">
+      </div>
+    </div>
+
+    <!-- November 2024 -->
+    <div class="month-group nov" id="nov-2023" data-year="2023">
+      <div class="month-title">November <span class="year-text three">2023</span></div>
+      <div class="gallery">
+        <img src="erm/eea94ae29e9febfcf42cdd416c7a2eb1.jpeg" alt="Image" data-date="November 18">
+        <img src="erm/aff894b1185bd714b4a29e97c6402abf.jpeg" alt="Image" data-date="November 19">
+        <img src="erm/ce0737883c99aeb75ebb922de5cbb237.jpeg" alt="Image" data-date="November 21">
+      </div>
+    </div>
+
+    <!-- January 2024 -->
+    <div class="month-group jan" id="jan-2024" data-year="2024">
+      <div class="month-title">January <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/203653ac7875d3c0a870eebc719f194b.jpeg" alt="Image" data-date="January 25">
+        <img src="erm/bd94506e1fa00b4741b5f8487f0a526f.jpeg" alt="Image" data-date="January 25">
+        <img src="erm/b2806dd29bc86c749e9e48c5ed2434c0.jpeg" alt="Image" data-date="January 25">
+      </div>
+    </div>
+
+    <!-- February 2024 -->
+    <div class="month-group feb" id="feb-2024" data-year="2024">
+      <div class="month-title">February <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/hatterene (1).png" alt="Image" data-date="February 11">
+        <img src="erm/9df1cda2adb5b68fed1db371d22438ad65730d6e.png" alt="Image" data-date="February 11">
+        <img src="erm/what-wha.png" alt="Image" data-date="February 18">
+        <img src="erm/funny-neck-thikgy.png" alt="Image" data-date="February 18">
+        <img src="erm/haha-short.png" alt="Image" data-date="February 18">
+        <img src="erm/futbol.png" alt="Image" data-date="February 18">
+        <img src="erm/cyence.png" alt="Image" data-date="February 18">
+      </div>
+    </div>
+
+    <!-- June 2024 -->
+    <div class="month-group jun" id="jun-2024" data-year="2024">
+      <div class="month-title">June <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/CG_AikoSucc.png" alt="Image" data-date="June 6">
+        <img src="erm/lanas_ma1.jpeg" alt="Image" data-date="June 7">
+        <img src="erm/peach_i_think.png" alt="Image" data-date="June 6">
+        <img src="erm/shiny_gardevoir.png" alt="Image" data-date="June 6">
+        <img src="erm/613156656c61f7c41492309ba5958283.png" alt="Image" data-date="June 6">
+        <img src="erm/wait....png" alt="Image" data-date="June 6">
+        <img src="erm/what (1).png" alt="Image" data-date="June 6">
+        <img src="erm/lanas_ma.jpeg" alt="Image" data-date="June 7">
+        <img src="erm/bfaca907039ff8f3f172879c397623c5.png" alt="Image" data-date="June 8">
+        <img src="erm/ba0f09257d982696a2326a2135ba78c5.jpeg" alt="Image" data-date="June 9">
+        <img src="erm/bfe5f7286b6f20fb6c012d794aa6282e.jpeg" alt="Image" data-date="June 17">
+      </div>
+    </div>
+
+    <!-- July 2024 -->
+    <div class="month-group jul" id="jul-2024" data-year="2024">
+      <div class="month-title">July <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/2d8558ed76d548731ec0fea3958435d6.jpeg" alt="Image" data-date="July 8">
+        <img src="erm/cheerleader_03.png" alt="Image" data-date="July 8">
+        <img src="erm/cheerleader_02.png" alt="Image" data-date="July 8">
+        <img src="erm/cheerleader_01.png" alt="Image" data-date="July 8">
+        <img src="erm/cheerleader_01.png" alt="Image" data-date="July 8">
+        <img src="erm/309340c764965c0a65bec95f6af59f34a5e6dc3c.png" alt="Image" data-date="July 11">
+        <img src="erm/baa57af44a7729887e9bdf24b3d19654.png" alt="Image" data-date="July 11">
+        <img src="erm/36ade7465255ae8fea75018b086e44c7.png" alt="Image" data-date="July 11">
+        <img src="erm/9d4cb41c43b8f2388c12e676b62f89f2.png" alt="Image" data-date="July 11">
+        <img src="erm/a5e9f4d00d8575410e78778aed58a8c85fec1316.jpg" alt="Image" data-date="July 11">
+        <img src="erm/6eaf15ddd5e553ef76ab18b4645fb3b7.jpeg" alt="Image" data-date="July 11">
+        <img src="erm/__shinomiya_fuyumi_mahjong_soul_drawn_by_fujigaya_arctia__d225184cdf81e178f16b7ff202b24bcf.png" alt="Image" data-date="July 12">
+        <img src="erm/__eve_krist_mahjong_soul_drawn_by_fujigaya_arctia__2aa7d3f1e5639365525c9929f8725568.png" alt="Image" data-date="July 12">
+        <img src="erm/9190299fe86a6f7bc746824c157944407defb8d7.jpg" alt="Image" data-date="July 12">
+        <img src="erm/82c99dbeee8dd0cc953ab615b8cdf1e4.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/3d21a24380e9b813cafa8349f65807dc.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/2771ed86f2bbf88bae00b872531022db.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/fa505e4c973ee5f498c2942d2aad2c87.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/656abb9617e7e6e88528793180f14bea.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/ba4b3e8e39b046daf76aafcee3db80c979c74aa8.jpg" alt="Image" data-date="July 12">
+        <img src="erm/09ed37e2e2f311b2c043d61dca51ab61.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/harmony.png" alt="Image" data-date="July 12">
+        <img src="erm/4f9c3ac55c7be612283b2e867dbfb308.jpeg" alt="Image" data-date="July 12">
+        <img src="erm/hilda_01.png" alt="Image" data-date="July 13">
+        <img src="erm/545c5d203ca9731a24d982127e05cc17.jpeg" alt="Image" data-date="July 13">
+        <img src="erm/a6d3518bf263452155e51abeadb2c64b.jpeg" alt="Image" data-date="July 13">
+        <img src="erm/hilda_04.png" alt="Image" data-date="July 13">
+        <img src="erm/77f179d0f5ee26e3ccdb4ed6cdc39026.png" alt="Image" data-date="July 14">
+        <img src="erm/ebfce254c768fec160db11a3480eec42.png" alt="Image" data-date="July 14">
+        <img src="erm/171c607faa1baeda6f505b5ea542e93e.jpeg" alt="Image" data-date="July 14">
+        <img src="erm/0a44feca47c5813cdad6294fcc8720f2.png" alt="Image" data-date="July 14">
+        <img src="erm/40b4b1ad9e139aa45b78ce1b3cad3825.png" alt="Image" data-date="July 14">
+        <img src="erm/1f8256d5807fd5010c89ecc8bc046134.png" alt="Image" data-date="July 14">
+        <img src="erm/8ad8813200bf6cae5f4934eb847a8f48.png" alt="Image" data-date="July 14">
+        <img src="erm/18402894ff97af75384538d55c9df141.png" alt="Image" data-date="July 14">
+        <img src="erm/5a9a9bcd8c2c4e0c9619fad40df9732b.png" alt="Image" data-date="July 20">
+        <img src="erm/5e289b1b37973ecce62019f2f825b9b4.jpeg" alt="Image" data-date="July 22">
+        <img src="erm/b5560bebd01ac4b9e93768e83bdf71a0e14a720c.png" alt="Image" data-date="July 22">
+        <img src="erm/e654484e136760a713a21329621880e3.png" alt="Image" data-date="July 22">
+        <img src="erm/6afe6d638004b8f2535309e2dc79d306.png" alt="Image" data-date="July 22">
+        <img src="erm/a1095826dceaba8e84b52116ae260b78.png" alt="Image" data-date="July 24">
+      </div>
+    </div>
+
+    <!-- August 2024 -->
+    <div class="month-group aug" id="aug-2024" data-year="2024">
+      <div class="month-title">August <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/f48263f61f7b760b52d7a81176c5a33b.jpeg" alt="Image" data-date="August 4">
+        <img src="erm/819912b6e3548c1ee508d13bfb9c1aa7b12b9d45.png" alt="Image" data-date="August 4">
+        <img src="erm/893d0485746c754929000707409cf4ad.jpeg" alt="Image" data-date="August 4">
+        <img src="erm/07e337e02d7a023b156fe529260ba2b1.jpeg" alt="Image" data-date="August 4">
+        <img src="erm/a1c3df3119ef48281a4790e7571eff2ac51dae03.png" alt="Image" data-date="August 10">
+      </div>
+    </div>
+
+    <!-- September 2024 -->
+    <div class="month-group sep" id="sep-2024" data-year="2024">
+      <div class="month-title">September <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/bellosom.jpeg" alt="Image" data-date="September 16">
+        <img src="erm/gloom.png" alt="Image" data-date="September 16">
+        <img src="erm/dugtrio.png" alt="Image" data-date="September 16">
+        <img src="erm/mareep.png" alt="Image" data-date="September 16">
+        <img src="erm/weepinbell.png" alt="Image" data-date="September 16">
+        <img src="erm/umbreon.png" alt="Image" data-date="September 16">
+        <img src="erm/hoppip.png" alt="Image" data-date="September 16">
+      </div>
+    </div>
+
+    <!-- October 2024 -->
+    <div class="month-group oct" id="oct-2024" data-year="2024">
+      <div class="month-title">October <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/14d4a6e2c21e8a0cb82fc5461afa9c2e.jpg" alt="Image" data-date="October 22">
+        <img src="erm/be85ea983d531bc20400563d8cf4add5.jpeg" alt="Image" data-date="October 25">
+        <img src="erm/adea3df56bc816c558491ada3d6c81d5.png" alt="Image" data-date="October 25">
+        <img src="erm/f76e091d04463e6cc933a54e9b1e30bc91f5a876.png" alt="Image" data-date="October 28">
+        <img src="erm/477aca7906650273d5fb08636b0815b0ec625068.jpg" alt="Image" data-date="October 28">
+        <img src="erm/13963fe9855de283e20ea233703dc1cb.jpeg" alt="Image" data-date="October 28">
+        <img src="erm/102e3e086415cdb12ca098b20a4a8ef2.png" alt="Image" data-date="October 28">
+        <img src="erm/b435b857cca80787daffb4646c33d8fe.jpeg" alt="Image" data-date="October 29">
+        <img src="erm/gbugbugbyygnb.png" alt="Image" data-date="October 29">
+        <img src="erm/52260474f6e93657d74d95ea8d50f06b.jpeg" alt="Image" data-date="October 30">
+        <img src="erm/64d92ca1c5e3d15d6525fed0d140c450.png" alt="Image" data-date="October 30">
+        <img src="erm/a3c5a028856ae7948c3548c4daa6066d8c4b5cfc.png" alt="Image" data-date="October 30">
+        <img src="erm/dcc3c7ce80ba4f96146f1473fd5ec801fdbdb00e.jpg" alt="Image" data-date="October 30">
+        <img src="erm/5658b17f204ea3023df5b093e9ae72d710a7e415.png" alt="Image" data-date="October 30">
+        <img src="erm/cb40bbdaaf9997d7f21578bd70296a0f88a8a870.jpg" alt="Image" data-date="October 30">
+        <img src="erm/ad8e806f8fdaa327aa3d4e4633e7e5ba.jpeg" alt="Image" data-date="October 30">
+        <img src="erm/bfbc3aac311eaf0ffc9e251fb32a88b9.jpeg" alt="Image" data-date="October 30">
+        <img src="erm/a66b8278ced44450e1f56dd99b17111b.jpeg" alt="Image" data-date="October 30">
+        <img src="erm/2c898d26e9dfb062f528929ed3b8691b.png" alt="Image" data-date="October 30">
+        <img src="erm/df5435531cbf3f042caeac971de90efa.jpeg" alt="Image" data-date="October 30">
+        <img src="erm/b1fc7fb73fe780645639c57da2ad8a37.jpeg" alt="Image" data-date="October 31">
+        <img src="erm/e2c17f9bd1bd901e1c6b912aab411208.png" alt="Image" data-date="October 31">
+        <img src="erm/cb7f16062f5c5f4170fc35f81841fcae.jpeg" alt="Image" data-date="October 31">
+        <img src="erm/af4549834303babf6f3d87d4bbc8af8a.png" alt="Image" data-date="October 31">
+        <img src="erm/5a083bc07d8263c0147fd08b600e08fffab44b10.jpg" alt="Image" data-date="October 31">
+        <img src="erm/0f959b8551c0d8f259978c0206d848ae.png" alt="Image" data-date="October 31">
+        <img src="erm/4d48c722d3539c1199982c03b2e47d57.png" alt="Image" data-date="October 31">
+        <img src="erm/c3d6f395c09aa369a6d1d6bbc94f6eb4ade291f9.jpg" alt="Image" data-date="October 31">
+        <img src="erm/11b2bea5dbc3d31a4b9c4d00f759008714ae4660.png" alt="Image" data-date="October 31">
+        <img src="erm/1d08038299e28e0d5812e33d13090ba747c849e9.jpg" alt="Image" data-date="October 31">
+      </div>
+    </div>
+    
+    <!-- November 2024 -->
+    <div class="month-group nov" id="nov-2024" data-year="2024">
+      <div class="month-title">November <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/979f7837ab188e46ac9c332aa5c91cec02faae18.png" alt="Image" data-date="November 1">
+        <img src="erm/d4cc3ccdc76400fb2adc65517964a12a.png" alt="Image" data-date="November 10">
+        <img src="erm/8f3jc76vj48v4jci3kv9 9wjvj6j2j.jpg" alt="Image" data-date="November 11">
+        <img src="erm/9a88ffa171b67d25abfae50430cb2f5e.png" alt="Image" data-date="November 12">
+        <img src="erm/800d197b5e66b069c551f560cb1b6c5a.png" alt="Image" data-date="November 12">
+        <img src="erm/2719f0cfcfb1b3c88dd77d14157bbffa.jpeg" alt="Image" data-date="November 12">
+        <img src="erm/018a31248a50a0bc76530729b5a417f5.png" alt="Image" data-date="November 12">
+        <img src="erm/e8f019f0448b9e0a77fb03154ad8ea33.png" alt="Image" data-date="November 12">
+        <img src="erm/90898418_p0.jpg" alt="Image" data-date="November 12">
+        <img src="erm/8ddc4813c4f001d28001d75e1f70b31f.jpeg" alt="Image" data-date="November 12">
+        <img src="erm/b9e8b824334c6637425db8b80b33ec5f.png" alt="Image" data-date="November 12">
+        <img src="erm/edc402421a022f7a3ce57090584b6bf2.png" alt="Image" data-date="November 12">
+        <img src="erm/e7ad12a447df23a0c054dcd588f072d3.png" alt="Image" data-date="November 12">
+        <img src="erm/8e965ef9b1c6a6cf539e875bc2f9e10f.png" alt="Image" data-date="November 13">
+        <img src="erm/102e80df364eb3d887f3d9707132629fa.png" alt="Image" data-date="November 21">
+        <img src="erm/55b5b04abb4fe861d5da3cebdd953f84.jpeg" alt="Image" data-date="November 23">
+      </div>
+    </div>
+
+    <!-- December 2024 -->
+    <div class="month-group dec" id="dec-2024" data-year="2024">
+      <div class="month-title">December <span class="year-text four">2024</span></div>
+      <div class="gallery">
+        <img src="erm/Ga2CnrnWEAA5txk.gif" alt="Image" data-date="December 15">
+        <img src="erm/blue-news_2.gif" alt="Image" data-date="December 15">
+        <img src="erm/0fad6c1a5bf07ca7be3fa3281eb55a74.jpeg" alt="Image" data-date="December 20">
+        <img src="erm/cbc314446c161446d00bc3f03bcb55d5.jpeg" alt="Image" data-date="December 20">
+        <img src="erm/6a771e9768ddb2119400db8fe2e6ede7.jpeg" alt="Image" data-date="December 25">
+        <img src="erm/521f0333d020b4d4f7527950c6eb7e34.png" alt="Image" data-date="December 25">
+        <img src="erm/372ca85c8803bc7a8751e92bac8fc70e.png" alt="Image" data-date="December 29">
+        <img src="erm/fc33dfa7d62b3699ba8f74deb83058e5.png" alt="Image" data-date="December 29">
+        <img src="erm/e8929b10e552e369f1e67577802c3523.jpeg" alt="Image" data-date="December 29">
+      </div>
+    </div>
+
+    <!-- January 2025 -->
+    <div class="month-group jan" id="jan-2025" data-year="2025">
+      <div class="month-title">January <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/53bc1439146cdd5617044d6464d4f101e88ebc38.png" alt="Image" data-date="January 5">
+        <img src="erm/18b6f67c7e204745b3043b79759500f24aa486b6.jpg" alt="Image" data-date="January 12">
+        <img src="erm/7cf61a280d57be186b8e1200d3540f4fbe85b825.png" alt="Image" data-date="January 17">
+        <img src="erm/__hoshimi_miyabi_zenless_zone_zero_drawn_by_kukiyuusha__d0fa796375119c6b57de48fcc772eb3e.jpg" alt="Image" data-date="January 21">
+      </div>
+    </div>
+
+    <!-- February 2025 -->
+    <div class="month-group feb" id="feb-2025" data-year="2025">
+      <div class="month-title">February <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/d411ea9a3653fbf9e2460355af31673164ed1a83.png" alt="Image" data-date="February 2">
+        <img src="erm/533ae65b58427e9dd037434c672f146223ac4461.png" alt="Image" data-date="February 10">
+        <img src="erm/9539f43b29213b53b41050d543f47b84.png" alt="Image" data-date="February 10">
+        <img src="erm/68ad84f596153b57190da11c8a48b236.png" alt="Image" data-date="February 10">
+        <img src="erm/0a3b024d377fa5072ad79ee08ae30380.png" alt="Image" data-date="February 10">
+      </div>
+    </div>
+
+    <!-- March 2025 -->
+    <div class="month-group mar" id="mar-2025" data-year="2025">
+      <div class="month-title">March <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/blue-news.gif" alt="Image" data-date="March 13">
+        <img src="erm/8515d2d327cea21fa6f2a55cce0c2495.png" alt="Image" data-date="March 21">
+      </div>
+    </div>
+
+    <!-- April 2025 -->
+    <div class="month-group apr" id="apr-2025" data-year="2025">
+      <div class="month-title">April <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/04ba8dc3fdbf4aebd259ab0711b2beb73b683bf2.jpg" alt="Image" data-date="April 27">
+        <img src="erm/8a0a5c76f883da25f64df1306e54fb27.jpeg" alt="Image" data-date="April 28">
+        <img src="erm/589087.jpg" alt="Image" data-date="April 28">
+        <img src="erm/543d37f9027754d3bfca29f5b5175e54.jpeg" alt="Image" data-date="April 28">
+        <img src="erm/cbtfybtfnbtf.png" alt="Image" data-date="April 28">
+        <img src="erm/PjdIU5MpECmYDQoqQ7Y1ji38.jpeg" alt="Image" data-date="April 28">
+        <img src="erm/310b1234bf5752ac70c52111077d4f0e.jpeg" alt="Image" data-date="April 28">
+        <img src="erm/c32eac55090e8dd8099e790878de910d.jpeg" alt="Image" data-date="April 28">
+        <img src="erm/68107cffbf3b46eb7b96354b9f7c3d2c5f68f1cc.jpg" alt="Image" data-date="April 28">
+        <img src="erm/__milltina_vrchat_drawn_by_yattarita777__9d03cb5fa315ee9171bb2aa6a9481d26.jpg" alt="Image" data-date="April 28">
+        <img src="erm/__milltina_vrchat_drawn_by_kazahari_kazuho__bdfe0b3fc2f60b9f1f7b933f16c9bcfc.png" alt="Image" data-date="April 28">
+      </div>
+    </div>
+
+    <!-- May 2025 -->
+    <div class="month-group may" id="may-2025" data-year="2025">
+      <div class="month-title">May <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/i don't know either man.jpeg" alt="Image" data-date="May 3">
+        <img src="erm/1c5ed4ca83cf868c9c0b592a0af18182.png" alt="Image" data-date="May 4">
+        <img src="erm/3bf2e9596377a5b6d50015b036cb5545.png" alt="Image" data-date="May 5">
+        <img src="erm/c0c6b2ee70a5bef3b0fdad4668c0f8f482dde507.png" alt="Image" data-date="May 10">
+        <img src="erm/129852424_p0.png" alt="Image" data-date="May 11">
+        <img src="erm/0ff9d01304b761c24913b0f1c4fa31f90e6111e0.png" alt="Image" data-date="May 11">
+        <img src="erm/b71635a80d8eeae802f28defc6ff9238.jpeg" alt="Image" data-date="May 11">
+        <img src="erm/0d1531b6e045dac8d567f2dd0f02c87b.jpeg" alt="Image" data-date="May 11">
+        <img src="erm/7ce443932313adf316a29ffa9ca4b0bdf1861ec3.jpg" alt="Image" data-date="May 11">
+        <img src="erm/f860572bc955aeb250a55b221decf611.png" alt="Image" data-date="May 11">
+        <img src="erm/07cf4c2f5c76715acb96c08848a73c7080a8b188.jpg" alt="Image" data-date="May 11">
+        <img src="erm/dad01fa29a85bb1da10066cf86935a3772da23cc.jpg" alt="Image" data-date="May 11">
+        <img src="erm/GmhL26UW0AAK-Gy.jpg" alt="Image" data-date="May 11">
+        <img src="erm/15896a79d120c3fc46c852ab36ba5ca8.png" alt="Image" data-date="May 11">
+        <img src="erm/0d9d5b014a2524c90a4d53e7091bb5ab.png" alt="Image" data-date="May 12">
+        <img src="erm/aa1a01220fbc1c3369d45b7559743a9f75ac90b3.png" alt="Image" data-date="May 12">
+        <img src="erm/94261e2a7d7fa87172f0f087ff07ea48.png" alt="Image" data-date="May 12">
+        <img src="erm/a8e7db01757f2f18ba6bdda5d0f3cf3a.jpg" alt="Image" data-date="May 15">
+        <img src="erm/2548662814ad37356ba824b9ca73f525.jpg" alt="Image" data-date="May 15">
+        <img src="erm/7c0e9aa6c2247a25c0b725a5431358e3.png" alt="Image" data-date="May 18">
+        <img src="erm/b148be9e7e3aacef26e7ca2257581a2b.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__original_drawn_by_mocomori__e9dc15bedc7c879821de2a259272346d.png" alt="Image" data-date="May 18">
+        <img src="erm/__ellen_joe_and_ellen_joe_zenless_zone_zero_drawn_by_yzr_yzr99__5090384c42014a6fda9d4e802a1c83a0.png" alt="Image" data-date="May 18">
+        <img src="erm/__burnice_white_zenless_zone_zero_drawn_by_cisyo__af2f645f6fe74917fd65ee36360dc4b5.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__hoshimi_miyabi_zenless_zone_zero_drawn_by_acht_ao__3ab2d537eab0743ccd5e82273417e922.png" alt="Image" data-date="May 18">
+        <img src="erm/__alexandrina_sebastiane_zenless_zone_zero_drawn_by_toma_toma50__801dac0b21181be156cd66b1140e32ca.png" alt="Image" data-date="May 18">
+        <img src="erm/__tsukishiro_yanagi_zenless_zone_zero_drawn_by_maruichi_pepeto__2ea50079b0b78f272c0d4d60be21a7b1.png" alt="Image" data-date="May 18">
+        <img src="erm/__tsukishiro_yanagi_zenless_zone_zero_drawn_by_renetan__3202e2a5f072129a5bb6cfc54c268c19.png" alt="Image" data-date="May 18">
+        <img src="erm/__tsukishiro_yanagi_zenless_zone_zero_drawn_by_takashia_akimototakashia__520bdae78077705194228b9770106bdc.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__astra_yao_zenless_zone_zero_drawn_by_daram_shappydude__8b2c690b9b683a1bdfa57173353e1ee2.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__astra_yao_zenless_zone_zero_drawn_by_daram_shappydude__371bcb3189f4108b5ac0bfd5002b0afe.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__astra_yao_zenless_zone_zero_drawn_by_gweda__2bcd2f20f63708a54807dd85ad333e27.jpg" alt="Image" data-date="May 18">
+        <img src="erm/__jack_the_ripper_monster_strike_drawn_by_taguchi_sp__588f21e25d311c9d73591df166cc4f35.png" alt="Image" data-date="May 19">
+        <img src="erm/db1748vngh68hseghhchi836453jkjskjd.png" alt="Image" data-date="May 20">
+        <img src="erm/db1c303b55f212b6ba349e53fafb4e0f.png" alt="Image" data-date="May 20">
+        <img src="erm/__yae_miko_genshin_impact_drawn_by_younideyifengxin__8ad3fcf7288ae26000e6376bcbe14026.jpg" alt="Image" data-date="May 21">
+        <img src="erm/DP_PinkLed_Base.png" alt="Image" data-date="May 23">
+        <img src="erm/DP_PurpleLed_Base.png" alt="Image" data-date="May 23">
+        <img src="erm/DP_RedLed_Base.png" alt="Image" data-date="May 23">
+        <img src="erm/6612865 - creeeen Zenless_Zone_Zero Zhu_Yuan.png" alt="Image" data-date="May 23">
+        <img src="erm/7bcac65f6b9234c4fdc2f7eb1c0cde7f3424b5f4.jpg" alt="Image" data-date="May 23">
+        <img src="erm/2f8ca9c7e5d911728b7ff720f3145024547f914f.png" alt="Image" data-date="May 23">
+        <img src="erm/a0b2f9f69d20bc99220e0a580ec92fcf.jpeg" alt="Image" data-date="May 23">
+        <img src="erm/54570582e3942043ca900b815d58aa8ea9297e9d.png" alt="Image" data-date="May 24">
+        <img src="erm/cd98810f91545df9ee8ffe8f9b766fe3.jpeg" alt="Image" data-date="May 24">
+        <img src="erm/6736e82760dea6d04063309c3c932acad2baf388.png" alt="Image" data-date="May 27">
+      </div>
+    </div>
+
+    <!-- June 2025 -->
+    <div class="month-group jun" id="jun-2025" data-year="2025">
+      <div class="month-title">June <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/__rio_blue_archive_drawn_by_a_re__e1e9919dc373b271c5b3b99b17b58f8d.jpg" alt="Image" data-date="June 3">
+        <img src="erm/ea0f0a480d9cd23dbcf88e5678bc9fbe.gif" alt="Image" data-date="June 11">
+        <img src="erm/549e4bc758e627fb93326d2daae47d89.png" alt="Image" data-date="June 11">
+        <img src="erm/03ddddf4d72802f45a8948d457603d41.jpeg" alt="Image" data-date="June 11">
+        <img src="erm/38db6cb82cae29556e9e12ec6ff6f662.png" alt="Image" data-date="June 11">
+        <img src="erm/7d5412063f3ebaace0a40534599c9043.jpeg" alt="Image" data-date="June 11">
+        <img src="erm/4eb01624a8c8f6e949a4919710345e30.jpeg" alt="Image" data-date="June 11">
+        <img src="erm/12d9fc1a3485272d0c48aa1398069161.jpeg" alt="Image" data-date="June 11">
+        <img src="erm/c384c5b3365e80185f293649a80a3050.jpeg" alt="Image" data-date="June 12">
+        <img src="erm/b1ba07aedfb0a609f7534409e7b4e00f.jpeg" alt="Image" data-date="June 12">
+        <img src="erm/7109201e78ed5f660e941417600b5479e9076d86.png" alt="Image" data-date="June 12">
+        <img src="erm/558d1f0d3b05ef323f6292aa7cf7838c415b23fb.png" alt="Image" data-date="June 12">
+        <img src="erm/a8330554e4408b9d9afa11d0084a383ccc314862.jpg" alt="Image" data-date="June 17">
+        <img src="erm/8ca45eb8e96ced70c80b37934eb0fffc.png" alt="Image" data-date="June 20">
+        <img src="erm/64df28930af28fdff5dd8f9d2793e886.jpeg" alt="Image" data-date="June 20">
+        <img src="erm/Er6yFGcVQAEvdQN.jpg" alt="Image" data-date="June 20">
+        <img src="erm/03ab9260-6246-491b-b560-3d85db4fec1b.png" alt="Image" data-date="June 20">
+        <img src="erm/625837.jpg" alt="Image" data-date="June 24">
+        <img src="erm/549e4bc758e627fb93326d2daae47d89_alt.png" alt="Image" data-date="June 26">
+        <img src="erm/a8330554e4408b9d9afa11d0084a383ccc314862_alt.jpg" alt="Image" data-date="June 26">
+        <img src="erm/7ce443932313adf316a29ffa9ca4b0bdf1861ec3_alt.jpg" alt="Image" data-date="June 26">
+        <img src="erm/harmony_alt.png" alt="Image" data-date="June 27">
+        <img src="erm/641190866d03ccaf02623321cbeb5ce4.gif" alt="Image" data-date="June 27">
+        <img src="erm/819912b6e3548c1ee508d13bfb9c1aa7b12b9d45_alt.png" alt="Image" data-date="June 27">
+        <img src="erm/f05986e7e9172e3a65aa6e8cf91bbf8c.jpeg" alt="Image" data-date="June 27">
+        <img src="erm/de9df5be6bb7bbd02ff586942677c3a51a9d0bec.jpg" alt="Image" data-date="June 27">
+        <img src="erm/136897cb6181ce9ae2d8371ea0421ef8.jpeg" alt="Image" data-date="June 27">
+        <img src="erm/de9df5be6bb7bbd02ff586942677c3a51a9d0bec_alt.jpg" alt="Image" data-date="June 27">
+      </div>
+    </div>
+
+    <!-- July 2025 -->
+    <div class="month-group jul" id="jul-2025" data-year="2025">
+      <div class="month-title">July <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/2850626_nlindustries_mado-paizuri.png" alt="Image" data-date="July 3">
+        <img src="erm/9213d95da5e69007df5ac37b95837a64.png" alt="Image" data-date="July 4">
+        <img src="erm/f367696eac36ad3f0bd399b2a6faa93a.png" alt="Image" data-date="July 4">
+        <img src="erm/62c9b0238b28b373315d55f4bd283468.png" alt="Image" data-date="July 30">
+        <img src="erm/1ce7b1b3374b689824fd46272cd129d6.png" alt="Image" data-date="July 30">
+        <img src="erm/49d524f72f3681a837d223185225dca77d6df520.jpg" alt="Image" data-date="July 30">
+        <img src="erm/2efeff11305b8517e36eb6ed4c2d3406aa6fdee5.jpg" alt="Image" data-date="July 31">
+        <img src="erm/4f54722692defb30f5be931f0b6e5242.jpeg" alt="Image" data-date="July 31">
+        <img src="erm/525e24cb56da0b000c9ec210cce8e44d.gif" alt="Image" data-date="July 31">
+      </div>
+    </div>
+
+    <!-- August 2025 -->
+    <div class="month-group aug" id="aug-2025" data-year="2025">
+      <div class="month-title">August <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/85cea12e16bab107a97d1f3c03b67a02.png" alt="Image" data-date="August 5">
+        <img src="erm/6612866 - creeeen Zenless_Zone_Zero Zhu_Yuan.png" alt="Image" data-date="August 5">
+      </div>
+    </div>
+
+    <!-- September 2025 -->
+    <div class="month-group sep" id="sep-2025" data-year="2025">
+      <div class="month-title">September <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/b91b0fb93ced00d2db4829088826dc6a.jpeg" alt="Image" data-date="September 2">
+        <img src="erm/chara_paizuri.gif" alt="Image" data-date="September 2" class="pixel">
+        <img src="erm/0d050b65cf3aef1805b267a236d5b6da.gif" alt="Image" data-date="September 8">
+        <img src="erm/19ff3f49bb3d4391a3796bb977beae95.jpeg" alt="Image" data-date="September 9">
+        <img src="erm/68d3f7c5b96e3be53f0740d8f41bc59b.png" alt="Image" data-date="September 9">
+        <img src="erm/844d93806906dbda352f06a9f381fc17.png" alt="Image" data-date="September 16">
+        <img src="erm/abdb151efa91f96baa044956c1815280.png" alt="Image" data-date="September 16">
+        <img src="erm/0b084a368630979ff2b60bdb560ceb7a.png" alt="Image" data-date="September 16">
+        <img src="erm/9bc62608d33acc2cbbdaad8cad1c0c3b.png" alt="Image" data-date="September 16">
+        <img src="erm/b4da076ff35630f0318094a4e740803c.png" alt="Image" data-date="September 16">
+        <img src="erm/d57f480e2f723b5581e8d87891905f2f.png" alt="Image" data-date="September 16">
+        <img src="erm/a3bb633cde564bae80ab419128e135ec.jpeg" alt="Image" data-date="September 23">
+        <img src="erm/9cb7c9fe2bd73e61cde584b2b31048ef6d0ffa25.png" alt="Image" data-date="September 26">
+        <img src="erm/a2588ad336a5082af441d46ea0b5e565.jpeg" alt="Image" data-date="September 26">
+        <img src="erm/62fb70224d0ca12f4990850c712544b52c2e478b.jpg" alt="Image" data-date="September 26">
+        <img src="erm/f1bb9591c76a66591bc1e04b316c65810f3a1387.jpg" alt="Image" data-date="September 26">
+        <img src="erm/816ccab27a26cdc5e5aaf1eac65f862e0a31e0cc.jpg" alt="Image" data-date="September 26">
+        <img src="erm/3c487ad4d15689fe5d1ee1e7887962cf952145a0.jpg" alt="Image" data-date="September 28">
+        <img src="erm/57633b16f6a3d142334cb5ddaf27ea44.jpeg" alt="Image" data-date="September 28">
+        <img src="erm/2b55f076ecbaac9abd75c53459b2359f.jpeg" alt="Image" data-date="September 28">
+        <img src="erm/6d76b7975943e81144a26d73e2a4a5ad.jpeg" alt="Image" data-date="September 28">
+      </div>
+    </div>
+
+    <!-- October 2025 -->
+    <div class="month-group oct" id="oct-2025" data-year="2025">
+      <div class="month-title">October <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/9398a73f0f45f4a12a205719328e79735be78b73.jpg" alt="Image" data-date="October 1">
+        <img src="erm/3bf1b75c37db8afe522da26eb81615deca024b83.jpg" alt="Image" data-date="October 1">
+        <img src="erm/b541d53b392e463a913c8dda53460bc2.png" alt="Image" data-date="October 2">
+        <img src="erm/3cdba7e6d832dfd802eb5c97e1f3dad1.png" alt="Image" data-date="October 2">
+        <img src="erm/b437a77c9e20f1009958390bfdb5c31b.png" alt="Image" data-date="October 2">
+        <img src="erm/e8cbe117ccc5deb3906345bac1f142bfd0a41063.gif" alt="Image" data-date="October 4">
+        <img src="erm/6f3bfba0ca6c8e72d7f81c2a70124ebcbc5d6753.png" alt="Image" data-date="October 14">
+        <img src="erm/26cc51f9c307512a7201a70f25e4b72c.jpeg" alt="Image" data-date="October 15">
+        <img src="erm/27acbc17971e2975c82f2ee5b51e203d.jpeg" alt="Image" data-date="October 15">
+        <img src="erm/947c32aa9a6ef6a66588478374efea72.jpeg" alt="Image" data-date="October 15">
+        <img src="erm/fd8e39f29e2e91d6fa03b0f2ae6a746f76a5d91c.png" alt="Image" data-date="October 15">
+        <img src="erm/G2Z0c7haIAAlvJU.jpg" alt="Image" data-date="October 16">
+        <img src="erm/092613144e7d4e86a995d1254af16da222892783.jpg" alt="Image" data-date="October 16">
+        <img src="erm/48ba868518f250a783e99cdcadf15300.png" alt="Image" data-date="October 16">
+        <img src="erm/429b468170ef7c374ba518cc3099da7410838e59.png" alt="Image" data-date="October 16">
+        <img src="erm/0142225989112f4b8427593e9ae07bc6.jpeg" alt="Image" data-date="October 18">
+        <img src="erm/aae59d38aeca70f2b96ea0917e95de35.png" alt="Image" data-date="October 18">
+        <img src="erm/3ae8761041cebab8451da8a35f0e866f2634eb65.png" alt="Image" data-date="October 21">
+        <img src="erm/a7ee68ad704e606201ef57e677dcce97.png" alt="Image" data-date="October 28">
+      </div>
+    </div>
+
+    <!-- November 2025 -->
+    <div class="month-group nov" id="nov-2025" data-year="2025">
+      <div class="month-title">November <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/7e18f1c0a461d6898ae386bd79a032cbbcf789f6.jpg" alt="Image" data-date="November 1">
+        <img src="erm/499874.jpg" alt="Image" data-date="November 1">
+        <img src="erm/3dadb72732dfd1b84c1bd61d4721f3a0d5416556.png" alt="Image" data-date="November 6">
+        <img src="erm/93c9689f1c74bf59715f6ecd26c97389.jpeg" alt="Image" data-date="November 15">
+        <img src="erm/91fe6935ae_01_burnice_1_1.png" alt="Image" data-date="November 16">
+        <img src="erm/9ecaf96f42ea673ca12cc50ea42d8a16.png" alt="Image" data-date="November 16">
+        <img src="erm/c6143b292dc1362259a6b091d6fc4c24.png" alt="Image" data-date="November 16">
+        <img src="erm/1cf25eef06557e869c175835973b86ad5a74ffe6.png" alt="Image" data-date="November 16">
+        <img src="erm/5f77683db1d595edc75c0f661c3bf8af.png" alt="Image" data-date="November 17">
+        <img src="erm/960238f5b42acf6048178af7be048ddf.png" alt="Image" data-date="November 19">
+        <img src="erm/132485985_p0.jpg" alt="Image" data-date="November 25">
+      </div>
+    </div>
+
+    <!-- August 2025 -->
+    <div class="month-group dec" id="dec-2025" data-year="2025">
+      <div class="month-title">December <span class="year-text five">2025</span></div>
+      <div class="gallery">
+        <img src="erm/unfairr-artist-vivian-(zenless-zone-zero)-zenless-zone-zero-8876960.jpeg" alt="Image" data-date="December 5">
+        <img src="erm/5bf7c952fe4e06e71f54399b8a59448dd83c6dd8.jpg" alt="Image" data-date="December 5">
+        <img src="erm/147b8b20497bf45975b4a11b0199353f71b99147.jpg" alt="Image" data-date="December 10">
+        <img src="erm/6632643 - Jane_Doe Qingyi Unfairr Zenless_Zone_Zero Zhu_Yuan.jpg" alt="Image" data-date="December 10">
+        <img src="erm/e401b24c80b09ff518fe62021360de18.jpeg" alt="Image" data-date="December 10">
+        <br>
+        <img src="erm/d147f3be01dac8308314b18c0da4d8dc5bc05109.jpg" alt="Image" data-date="December 11">
+        <img src="erm/95107bf04be229e7c2359fe23d8c731f28669d93.jpg" alt="Image" data-date="December 11">
+        <img src="erm/a455d4d1d76b260dc7c157a97cda95d73615b850.jpg" alt="Image" data-date="December 11">
+        <img src="erm/e40842d3c93f11f503b72a3992f0490f.jpeg" alt="Image" data-date="December 11">
+        <img src="erm/__zhu_yuan_zenless_zone_zero_drawn_by_bluethebone__3148b0235ce1402d4786c51c0a3c8df4.gif" alt="Image" data-date="December 11">
+        <img src="erm/093eeca7547ccefc4779295c4830554e9cbe1921.png" alt="Image" data-date="December 21">
+        <img src="erm/47a1b9a1d1c1dbf8cc893aa9dc1a1a5e.jpeg" alt="Image" data-date="December 24">
+        <img src="erm/da571c63ddf5fce04bbf80d35ef50383.jpeg" alt="Image" data-date="December 27">
+        <img src="erm/4618872cb3be4366290a7f92a72112cb.jpeg" alt="Image" data-date="December 27">
+        <img src="erm/9239eaf6427f70f63029a5d7470f50ddc776d9e8.jpg" alt="Image" data-date="December 30">
+      </div>
+
+    </div><!-- August 2025 -->
+    <div class="month-group jan" id="jan-2026" data-year="2026">
+      <div class="month-title">January <span class="year-text six">2026</span></div>
+      <div class="gallery">
+        <img src="erm/018a31248a50a0bc76530729b5a417f5_alt.png" alt="Image" data-date="January 9">
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="fullscreen" id="fullscreen">
+    <div class="img-wrapper">
+      <img id="fullscreenImg" src="" alt="">
+    </div>
+    <div class="date-controls">
+      <button class="nav-btn" id="prevBtn">❮</button>
+      <div class="date-text" id="imageDate"></div>
+      <button class="nav-btn" id="nextBtn">❯</button>
+    </div>
+  </div>
+
+  <!-- Link to external JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
