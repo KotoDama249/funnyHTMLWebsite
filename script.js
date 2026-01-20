@@ -242,14 +242,6 @@ document.addEventListener('click', (event) => {
   }
 });
 
-
-function launchApp(appName) {
-    fetch(`http://localhost:3000/${appName}`)
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(err => console.error(err));
-}
-
 const lazyImages = document.querySelectorAll('img[data-src]');
 
 const observer = new IntersectionObserver(entries => {
