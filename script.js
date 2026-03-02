@@ -1,129 +1,128 @@
+// ==============================
+// Loader
+// ==============================
 document.fonts.load("1em Azuki").then(() => {
-  document.getElementById("loader").classList.add("hidden");
+  const loader = document.getElementById("loader");
+  if (loader) loader.classList.add("hidden");
 });
 
-
-const images = document.querySelectorAll('.gallery img');
+// ==============================
+// Fullscreen Gallery
+// ==============================
+const images = Array.from(document.querySelectorAll('.gallery img'));
 const fullscreen = document.getElementById('fullscreen');
 const fullscreenImg = document.getElementById('fullscreenImg');
 const imageDate = document.getElementById('imageDate');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
-const overlayBtn = document.getElementById('overlayBtn');
-const overlay = document.getElementById('overlay');
-const overlayImg = document.getElementById('overlayImg');
 
-  let currentIndex = -1;
-  let currentGallery = Array.from(document.querySelectorAll('.gallery img'));
+let currentIndex = -1;
 
 const yearColors = {
-  "2022": "#b9351e", // red-orange
-  "2023": "#cc8a33", // orange
-  "2024": "#4eb37f", // green
-  "2025": "#6fa5cc",  // blue
-  "2026": "#845ec9ff"  // blue
+  "2022": "#b9351e",
+  "2023": "#cc8a33",
+  "2024": "#4eb37f",
+  "2025": "#6fa5cc",
+  "2026": "#845ec9ff"
 };
 
 function showImage(index) {
-  if (index >= 0 && index < currentGallery.length) {
-    const clickedImg = currentGallery[index];
-    fullscreenImg.src = currentGallery[index].src;
-    fullscreenImg.className = currentGallery[index].className;
+  if (index < 0 || index >= images.length) return;
 
-    const dateText = currentGallery[index].dataset.date || '';
-    imageDate.textContent = dateText;
+  const img = images[index];
+  fullscreenImg.src = img.src;
+  fullscreenImg.className = img.className;
 
-    // Get year from parent group’s data attribute
-    const parentGroup = currentGallery[index].closest('.month-group');
-    const year = parentGroup?.dataset?.year || '2025';
+  const dateText = img.dataset.date || '';
+  imageDate.textContent = dateText;
 
-    imageDate.style.color = yearColors[year] || '#ccc';
-  }
+  const parentGroup = img.closest('.month-group');
+  const year = parentGroup?.dataset?.year || '2025';
+  imageDate.style.color = yearColors[year] || '#ccc';
 }
 
-
-
-  images.forEach((img, index) => {
-    img.addEventListener('click', () => {
-      currentIndex = index;
-      showImage(currentIndex);
-      fullscreen.style.display = 'flex';
-    });
+// Click to open fullscreen
+images.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    showImage(currentIndex);
+    fullscreen.style.display = 'flex';
   });
+});
 
-  fullscreen.addEventListener('click', (e) => {
-    // Only close if clicking outside image area
-    if (e.target === fullscreen) {
+// Click outside image closes fullscreen
+fullscreen.addEventListener('click', (e) => {
+  if (e.target === fullscreen) {
+    fullscreen.style.display = 'none';
+    fullscreenImg.src = '';
+    currentIndex = -1;
+  }
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (fullscreen.style.display === 'flex') {
+    if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    } else if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    } else if (e.key === 'Escape') {
       fullscreen.style.display = 'none';
       fullscreenImg.src = '';
       currentIndex = -1;
     }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (fullscreen.style.display === 'flex') {
-     if (e.key === 'ArrowRight' || e.key.toLowerCase() === 'd') {
-        // Next image
-        currentIndex = (currentIndex + 1) % currentGallery.length;
-        showImage(currentIndex);
-      } else if (e.key === 'ArrowLeft' || e.key.toLowerCase() === 'a') {
-        // Previous image
-       currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-        showImage(currentIndex);
-      } else if (e.key === 'Escape') {
-        // Exit fullscreen
-        fullscreen.style.display = 'none';
-        fullscreenImg.src = '';
-        currentIndex = -1;
-      }
-    }
-  });
-
-
-  prevBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (fullscreen.style.display === 'flex' && currentGallery.length > 0) {
-      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-      showImage(currentIndex);
-    }
-  });
-
-  nextBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (fullscreen.style.display === 'flex' && currentGallery.length > 0) {
-      currentIndex = (currentIndex + 1) % currentGallery.length;
-      showImage(currentIndex);
-    }
-  });
-
-  // --- Fullscreen Toggle ---
-  fullscreenBtn.addEventListener('click', toggleFullscreen);
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key.toLowerCase() === 'f') {
-      toggleFullscreen();
-    }
-  });
-
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
   }
 
-// --- Sync Button With F11 / Manual Changes ---
+  if (e.key.toLowerCase() === 'f') toggleFullscreen();
+});
+
+// Prev/Next buttons
+prevBtn?.addEventListener('click', e => {
+  e.stopPropagation();
+  if (images.length) {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+});
+
+nextBtn?.addEventListener('click', e => {
+  e.stopPropagation();
+  if (images.length) {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+});
+
+// Fullscreen toggle
+fullscreenBtn?.addEventListener('click', toggleFullscreen);
+
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// Sync button visual
 document.addEventListener('fullscreenchange', () => {
   const isFull = !!document.fullscreenElement;
-
-  // You can update button text or visuals here
-  fullscreenBtn.textContent = isFull ? '× Fullscreen' : '⛶ Fullscreen';
-
-  // Optional: add a visual indicator (class toggle)
-  fullscreenBtn.classList.toggle('active', isFull);
+  if (fullscreenBtn) {
+    fullscreenBtn.textContent = isFull ? '× Fullscreen' : '⛶ Fullscreen';
+    fullscreenBtn.classList.toggle('active', isFull);
+  }
 });
+
+// ==============================
+// Overlay Slideshow
+// ==============================
+const overlayBtn = document.getElementById('overlayBtn');
+const overlay = document.getElementById('overlay');
+const overlayImg = document.getElementById('overlayImg');
+const pauseOverlayBtn = document.getElementById('pauseOverlayBtn');
 
 const overlayImages = [
   "covers/cook.webp",
@@ -149,70 +148,59 @@ const overlayImages = [
 let currentOverlayIndex = 0;
 let overlayInterval = null;
 let isPaused = false;
-let fadeDuration = 1000; // 1s fade
-let displayDuration = 5000; // 5s visible before fade out
+const fadeDuration = 1000;
+const displayDuration = 5000;
 
-  // --- Overlay Open/Close ---
+// Overlay open/close
+if (overlayBtn && overlay) {
   overlayBtn.addEventListener('click', openOverlay);
-
-  document.addEventListener('keydown', (e) => {
-   if (e.key.toLowerCase() === 'c') {
-     openOverlay();
-   } else if (e.key === 'Escape' && overlay.style.display === 'flex') {
-      closeOverlay();
-    }
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeOverlay();
   });
 
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) {
-      closeOverlay();
-    }
+  document.addEventListener('keydown', e => {
+    if (e.key.toLowerCase() === 'c') openOverlay();
+    if (e.key === 'Escape' && overlay.style.display === 'flex') closeOverlay();
   });
+}
 
-  function openOverlay() {
-    showOverlayImage(currentOverlayIndex);
-    overlay.style.display = 'flex';
-    startOverlayRotation();
-  }
-
-  function closeOverlay() {
-    overlay.style.display = 'none';
-    stopOverlayRotation();
-  }
-
-
-// Pause/Resume toggle
-pauseOverlayBtn.addEventListener('click', () => {
+pauseOverlayBtn?.addEventListener('click', () => {
   isPaused = !isPaused;
   pauseOverlayBtn.textContent = isPaused ? '⏯ Resume' : '⏸ Pause';
 });
 
-// Display next image smoothly
+function openOverlay() {
+  showOverlayImage(currentOverlayIndex);
+  overlay.style.display = 'flex';
+  startOverlayRotation();
+}
+
+function closeOverlay() {
+  overlay.style.display = 'none';
+  stopOverlayRotation();
+}
+
 function showOverlayImage(index) {
   overlayImg.classList.remove('visible', 'pixelated');
   const imgSrc = overlayImages[index];
   overlayImg.src = imgSrc;
 
-  // Detect pixel art (optional rule — adjust filenames or folders)
   if (imgSrc.includes('pixel') || imgSrc.includes('pix_')) {
     overlayImg.classList.add('pixelated');
   }
 
-  // Wait a bit before fade in
   setTimeout(() => overlayImg.classList.add('visible'), 100);
 }
 
 function startOverlayRotation() {
-  stopOverlayRotation(); // clear existing interval
-
+  stopOverlayRotation();
   overlayInterval = setInterval(() => {
     if (!isPaused) {
-      overlayImg.classList.remove('visible'); // fade out
-
+      overlayImg.classList.remove('visible');
       setTimeout(() => {
         currentOverlayIndex = (currentOverlayIndex + 1) % overlayImages.length;
         showOverlayImage(currentOverlayIndex);
-      }, fadeDuration + 400); // longer pause between fade out/in
+      }, fadeDuration + 400);
     }
   }, displayDuration + fadeDuration * 2);
 }
@@ -222,28 +210,42 @@ function stopOverlayRotation() {
   overlayInterval = null;
 }
 
-const gameSidebar = document.getElementById('gameSidebar');
-const openBtn = document.getElementById('openGameSidebarBtn');
+// ==============================
+// Universal Sidebar Controller
+// ==============================
+(function () {
+  const buttons = document.querySelectorAll('[data-sidebar-target]');
+  const sidebars = document.querySelectorAll('.sidebar');
 
-openBtn.addEventListener('click', () => {
-  gameSidebar.classList.toggle('open');
-});
-
-// Close sidebar when clicking outside
-document.addEventListener('click', (event) => {
-  const isClickInsideSidebar = gameSidebar.contains(event.target);
-  const isClickOnButton = openBtn.contains(event.target);
-
-  // If sidebar is open, and click is NOT inside it or on its toggle button → close it
-  if (gameSidebar.classList.contains('open') &&
-      !isClickInsideSidebar &&
-      !isClickOnButton) {
-    gameSidebar.classList.remove('open');
+  function closeAll() {
+    sidebars.forEach(s => s.classList.remove('open'));
   }
-});
 
+  buttons.forEach(btn => {
+    const target = document.getElementById(btn.dataset.sidebarTarget);
+    if (!target) return;
+
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const isOpen = target.classList.contains('open');
+      closeAll();
+      if (!isOpen) target.classList.add('open');
+    });
+  });
+
+  document.addEventListener('click', e => {
+    sidebars.forEach(s => {
+      if (s.classList.contains('open') && !s.contains(e.target)) {
+        s.classList.remove('open');
+      }
+    });
+  });
+})();
+
+// ==============================
+// Lazy Loading
+// ==============================
 const lazyImages = document.querySelectorAll('img[data-src]');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -254,5 +256,4 @@ const observer = new IntersectionObserver(entries => {
     }
   });
 });
-
 lazyImages.forEach(img => observer.observe(img));

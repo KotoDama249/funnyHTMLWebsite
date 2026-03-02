@@ -9,11 +9,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- ==============================
+       Loader
+  ============================== -->
   <div id="loader"></div>
 
-  <div class="sidebar">
-    <div class="sidebar-top">
-      <h3>Jump to:</h3>
+  
+  <!-- ==============================
+       Sidebar Buttons
+  ============================== -->
+    <button id="openMainSidebarBtn" data-sidebar-target="main-sidebar" class="sidebar-button left"> Main Sidebar</button>
+    <button id="openGameSidebarBtn" data-sidebar-target="gameSidebar" class="sidebar-button right">Game Sidebar</button>
+
+  <!-- ==============================
+       Sidebar
+  ============================== -->
+  <div id="main-sidebar" class="sidebar left main-sidebar">
+
+    <h3>Jump to:</h3>
+
+    <div class="main-sidebar-top">
+      <!-- Month Links -->
       <a href="#sep-2022" class="month-link sep"><span class="month-name">September</span><span class="year-text two">2022</span></a>
       <a href="#may-2023" class="month-link may"><span class="month-name">May</span><span class="year-text three">2023</span></a>
       <a href="#sep-2023" class="month-link sep"><span class="month-name">September</span><span class="year-text three">2023</span></a>
@@ -41,33 +58,39 @@
       <a href="#dec-2025" class="month-link dec"><span class="month-name">December</span><span class="year-text five">2025</span></a>
       <a href="#jan-2026" class="month-link jan"><span class="month-name">January</span><span class="year-text six">2026</span></a>
       <a href="#feb-2026" class="month-link feb"><span class="month-name">February</span><span class="year-text six">2026</span></a>
+      <a href="#mar-2026" class="month-link mar"><span class="month-name">March</span><span class="year-text six">2026</span></a>
+
+    </div> <!-- /.main-sidebar-top -->
+
+    <div class="main-sidebar-buttons">
+      <button id="fullscreenBtn" class="sidebar-button">⛶ Fullscreen</button>
+    </div> <!-- /.sidebar-buttons -->
+
+  </div> <!-- /.sidebar -->
+
+  <!-- ==============================
+       Game Sidebar
+  ============================== -->
+  <div id="gameSidebar" class="sidebar right">
+
+    <div class="shortcut-container">
+
+      <a class="shortcut" href="https://kotodama249.github.io/Housemaid-Ladies-Disturb-My-Study-/" target="_blank">
+        <span>Housemaid Ladies Disturb My Study!</span></a>
+        <a class="shortcut" href="https://kotodama249.github.io/adventureWithM/" target="_blank">
+        <span>Adventure With Mother</span></a>
+        <a class="shortcut" href="https://kotodama249.github.io/npcRQuest/" target="_blank">
+        <span>NPC R Quest</span></a>
+        <a class="shortcut" href="https://kotodama249.github.io/theHeroVs/" target="_blank">
+        <span>The Hero vs. The Succubus Army</span></a>
+        <br>
+        <br>
     </div>
-  <div>
-      <div class="sidebar-buttons">
-        
-      <!--
-        <button onclick="window.location.href = window.location.origin + window.location.pathname" class="overlay-btn">
-        Reload Page
-        </button>
-        -->
+  </div>
 
-        <!--
-        <button id="overlayBtn" class="overlay-btn">Enable Cover</button>
-        <div class="overlay" id="overlay">
-          <div class="overlay-img-wrapper">
-            <img id="overlayImg" src="" alt="">
-          </div>
-          <button id="pauseOverlayBtn" class="overlay-pause">⏸ Pause</button>
-        </div>
-        <button id="openGameSidebarBtn" class="overlay-btn">Game Shortcuts</button>
-        -->
-
-        <button id="fullscreenBtn">⛶ Fullscreen</button>
-
-      </div>
-    </div>
-    </div>
-
+  <!-- ==============================
+       Main Content
+  ============================== -->
   <div class="content">
     <p class="special-size">"Funny" Image Gallery</p>
 
@@ -573,19 +596,31 @@
         <img src="erm/f34c2f3afe929dbf57851ecd2ec3d7d5.gif" alt="Image" data-date="January 28">
       </div>
 
-    </div><!-- February 2025 -->
+    </div><!-- February 2026 -->
     <div class="month-group feb" id="feb-2026" data-year="2026">
-      <div class="month-title">February<span class="year-text six">2026</span></div>
+      <div class="month-title">February <span class="year-text six">2026</span></div>
       <div class="gallery">
         <img src="erm/c21e29420f874d309ffc4de21533b765.jpeg" alt="Image" data-date="February 11">
         <img src="erm/c4da3249c383fd66aee48e3992783c94700d97bf.jpg" alt="Image" data-date="February 11">
         <img src="erm/60413970d3e7adefd31e36d76c37bc33.jpeg" alt="Image" data-date="February 11">
+        <img src="erm/a481e2176b1bced53bff908aa5b22e2c.jpeg" alt="Image" data-date="February 26">
+        <img src="erm/c654a7494e2a44b66184441349d02c7b.jpeg" alt="Image" data-date="February 26">
       </div>
+
+    </div><!-- February 2026 -->
+    <div class="month-group mar" id="mar-2026" data-year="2026">
+      <div class="month-title">March <span class="year-text six">2026</span></div>
+      <div class="gallery">
+        <img src="erm/7f1ff25439f46462d4eac7289cbc3bfd.png" alt="Image" data-date="March 2">
+        <img src="erm/62105049d986b1f89d82764f032ea542.gif" alt="Image" data-date="March 2">
+      </div>
+      
     </div>
-
-
   </div>
 
+  <!-- ==============================
+       Fullscreen Display
+  ============================== -->
   <div class="fullscreen" id="fullscreen">
     <div class="img-wrapper">
       <img id="fullscreenImg" src="" alt="">
@@ -597,8 +632,9 @@
     </div>
   </div>
 
-  <!-- Link to external JS -->
+  <!-- ==============================
+       JS
+  ============================== -->
   <script src="script.js"></script>
-
 </body>
 </html>
